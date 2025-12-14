@@ -57,5 +57,5 @@
 
 ## Responsabilidade da Equipe
 - Sarah e Vinicius: Responsáveis pela implementação da classe Lançamento e de suas subclasses
-- Saulo: Responsável pela implementação da classe Categoria e Transferência
-- Pablo: Responsável pela implementação da classe Orçamento e Alertas
+- Saulo: Responsável pela implementação das classes Categoria, Transferência e interface de usuário no console
+- Pablo: Responsável pela implementação das classes Orçamento, Alertas e de armazenamento do dados
