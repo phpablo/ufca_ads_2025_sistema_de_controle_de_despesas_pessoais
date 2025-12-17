@@ -1,61 +1,102 @@
-# Classes
+# 💰 Sistema de Controle Financeiro Pessoal
 
-## Lançamento (Sarah e Vinicius) 
-### Atributos de Lançamento
-- Valor
-- Categoria
-- Data
-- Descrição
-- Forma de pagamento
+> **Entregável 1** - Disciplina de Programação Orientada a Objetos (POO)
 
-### Métodos de Lançamento
-- Criar
-- Editar
-- Excluir
-- Emitir alerta
+Este projeto consiste no desenvolvimento de um sistema para gestão de finanças pessoais. O objetivo é aplicar conceitos fundamentais de Orientação a Objetos, como herança, encapsulamento e divisão de responsabilidades, para criar uma ferramenta capaz de gerenciar receitas, despesas, orçamentos e emitir alertas financeiros.
 
-## Categoria (Saulo)
-### Atributos
-- Nome
-- Tipo
-- Limite mensal
-- Descrição (opcional)
+---
 
-### Métodos
-- Relatório
-- Emitir alerta
+## 🏫 Informações Acadêmicas
 
-## Orçamento (Pablo)
-### Atributo
-- Orçamento total
+| Instituição | **Universidade Federal do Cariri (UFCA)** |
+| :--- | :--- |
+| **Polo** | Itapipoca-CE |
+| **Semestre** | 2025.2 |
+| **Disciplina** | Programação Orientada a Objetos |
+| **Equipe** | 09 |
 
-### Método
-- Calcular saldo diário
-- Calcular saldo mensal
-- Emitir alerta
+### 👥 Integrantes da Equipe
 
-## Receita (herda de Lançamento) (Sarah e Vinicius) 
-### Métodos
-- Relatório
+| Nome | Matrícula | Função Principal |
+| :--- | :--- | :--- |
+| **Sarah Oliveira Lucas Diógenes** | 2025013808 | Implementação (Lançamentos/Subclasses) |
+| **Saulo Victo Soares** | 2025013853 | Implementação (Categorias/Interface) |
+| **Pablo Henrique Lima de Araujo** | 2025013700 | Implementação (Orçamento/Alertas/Dados) |
+| **Vinicius Tabosa dos Santos** | 2025013890 | Implementação (Lançamentos/Subclasses) |
 
-## Despesa (herda de Lançamento) (Sarah e Vinicius) 
-### Métodos
-- Relatório
+---
 
-## Transferência (herda de Lançamento) (Saulo)
-### Método
-- Fazer transferência
+## 🛠️ Arquitetura do Projeto
 
-## Alerta / Verificação (Pablo)
-### Atributo
-- Descrição
+O sistema foi modelado com base nas seguintes classes e responsabilidades:
 
- ### Método
-- Emitir alerta de alto valor
-- Emitir alerta de limite de categoria
-- Emitir alerta de déficit orçamentário
+### 1. Classe Base: Lançamento
+Classe "mãe" que define a estrutura básica de qualquer movimentação financeira.
+* **Atributos:**
+    * `Valor` (Monetário)
+    * `Categoria` (Associação)
+    * `Data` (Data do evento)
+    * `Descrição` (Texto)
+    * `Forma de pagamento` (Enum/Tipo)
+* **Métodos:**
+    * `Criar()`, `Editar()`, `Excluir()`
+    * `Emitir alerta()`
 
-## Responsabilidade da Equipe
-- Sarah e Vinicius: Responsáveis pela implementação da classe Lançamento e de suas subclasses
-- Saulo: Responsável pela implementação das classes Categoria, Transferência e interface de usuário no console
-- Pablo: Responsável pela implementação das classes Orçamento, Alertas e de armazenamento do dados
+### 2. Subclasses (Herança de Lançamento)
+Especializações da classe Lançamento.
+
+* **📈 Receita:**
+    * *Métodos Específicos:* `Relatório()`
+* **📉 Despesa:**
+    * *Métodos Específicos:* `Relatório()`
+
+
+### 3. Classe: Categoria
+Responsável por tipificar os lançamentos e definir tetos de gastos.
+* **Atributos:**
+    * `Nome`, `Tipo`, `Limite mensal`, `Descrição (opcional)`
+* **Métodos:**
+    * `Relatório()`
+    * `Emitir alerta()`
+
+### 4. Classe: Orçamento
+Gerencia o saldo global e cálculos periódicos.
+* **Atributos:**
+    * `Orçamento total`
+* **Métodos:**
+    * `Calcular saldo diário()`
+    * `Calcular saldo mensal()`
+    * `Emitir alerta()`
+
+### 5. Classe: Alerta / Verificação
+Sistema de monitoramento e notificações de saúde financeira.
+* **Atributos:**
+    * `Descrição`
+* **Métodos:**
+    * `Emitir alerta de alto valor`
+    * `Emitir alerta de limite de categoria`
+    * `Emitir alerta de déficit orçamentário`
+
+---
+
+## 📅 Divisão de Responsabilidades
+
+A execução do projeto foi dividida entre os membros da equipe para garantir a cobertura de todas as funcionalidades propostas no Entregável 1:
+
+* **Sarah e Vinicius:**
+    * Implementação completa da classe **Lançamento**.
+    * Implementação das subclasses: **Receita** e **Despesa**.
+* **Saulo:**
+    * Implementação da classe **Categoria**.
+    * Implementação da classe **Transferência** (herda de Lançamento).
+    * Desenvolvimento da **Interface de Usuário (Console)**.
+* **Pablo:**
+    * Implementação da classe **Orçamento**.
+    * Implementação da lógica de **Alertas/Verificação**.
+    * Responsável pelo sistema de **Armazenamento de Dados**.
+
+---
+
+<div align="center">
+  <sub>UFCA - Campus Itapipoca | 2025</sub>
+</div>
