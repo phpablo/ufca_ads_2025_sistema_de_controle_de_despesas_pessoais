@@ -49,8 +49,7 @@ Especializações da classe Lançamento.
     * *Métodos Específicos:* `Relatório()`
 * **📉 Despesa:**
     * *Métodos Específicos:* `Relatório()`
-* **arrows_counter_clockwise Transferência:**
-    * *Métodos Específicos:* `Fazer transferência()`
+
 
 ### 3. Classe: Categoria
 Responsável por tipificar os lançamentos e definir tetos de gastos.
