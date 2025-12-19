@@ -1,5 +1,5 @@
 from datetime import date
-#from models.categoria import Categoria
+from src.categoria import Categoria
 
 class Lancamento:
     def __init__(self, valor: float, categoria, data, descricao: str, formas_pagamento: str):
@@ -8,7 +8,7 @@ class Lancamento:
         else:
             self.__valor = valor
 
-        if not isinstance(categoria, list):
+        if not isinstance(categoria, Categoria):
            raise TypeError("Categoria Inválida")
         else:
             self.__categoria = categoria
@@ -39,7 +39,7 @@ class Lancamento:
 
     @categoria.setter
     def categoria(self, categoria):
-        if not isinstance(categoria, list):
+        if not isinstance(categoria, Categoria):
            raise TypeError("Categoria Inválida")
         self.__categoria = categoria
 

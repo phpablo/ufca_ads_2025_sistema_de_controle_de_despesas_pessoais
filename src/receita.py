@@ -1,4 +1,4 @@
-from lancamento import Lancamento
+from src.lancamento import Lancamento
 
 class Receita(Lancamento):
     def __init__(self, valor: float, categoria, data, descricao: str, formas_pagamento: str):

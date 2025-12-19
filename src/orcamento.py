@@ -1,4 +1,4 @@
-from alerta import Alerta
+from src.alerta import Alerta
 
 class Orcamento:
     def __init__(self, orcamento_total: float):
@@ -17,9 +17,9 @@ class Orcamento:
         for item in self.lista_lancamentos:
             # Filtra pelo mês e ano
             if item.data.month == mes and item.data.year == ano:
-                if item.tipo == "RECEITA":
+                if item.categoria == "RECEITA":
                     total_receitas += item.valor
-                elif item.tipo == "DESPESA":
+                elif item.categoria == "DESPESA":
                     total_despesas += item.valor
 
         return total_receitas - total_despesas
@@ -28,9 +28,9 @@ class Orcamento:
         saldo_dia = 0.0
         for item in self.lista_lancamentos:
             if item.data.day == dia and item.data.month == mes and item.data.year == ano:
-                if item.tipo == "RECEITA":
+                if item.categoria == "RECEITA":
                     saldo_dia += item.valor
-                elif item.tipo == "DESPESA":
+                elif item.categoria == "DESPESA":
                     saldo_dia -= item.valor
         return saldo_dia
 
@@ -41,5 +41,5 @@ class Orcamento:
             self.alerta_sistema.emitir_alerta_deficit(saldo_mes)
 
         # Regra 2: Alto Valor (Despesa > 500)
-        if item_recente.tipo == "DESPESA" and item_recente.valor > 500:
+        if item_recente.categoria == "DESPESA" and item_recente.valor > 500:
             self.alerta_sistema.emitir_alerta_alto_valor(item_recente.valor, item_recente.descricao)
