@@ -1,13 +1,27 @@
 from datetime import date
-#from models.categoria import Categoria
+from src.categoria import Categoria
 
 class Lancamento:
     def __init__(self, valor: float, categoria, data, descricao: str, formas_pagamento: str):
-        self.__valor = valor
-        self.__categoria = categoria #Chamar a classe categoria
+        if not isinstance(valor, (int, float)) or valor <= 0:
+            raise ValueError("Valor inválido.")
+        else:
+            self.__valor = valor
+
+        if not isinstance(categoria, Categoria):
+           raise TypeError("Categoria Inválida")
+        else:
+            self.__categoria = categoria
         self.__data = data if data else date.today()
-        self.__descricao = descricao
-        self.__formas_pagamento = formas_pagamento
+        if not isinstance(descricao, str) or not descricao.strip():
+            raise ValueError('Descrição inválida')
+        else:
+            self.__descricao = descricao
+        opcoes_validas = ["DINHEIRO", "DEBITO", "CREDITO", "PIX"]
+        if formas_pagamento.upper() not in opcoes_validas:
+            raise ValueError("Forma de pagamento inválida!")
+        else:
+            self.__formas_pagamento = formas_pagamento.upper()
 
     @property
     def valor(self):
@@ -25,8 +39,8 @@ class Lancamento:
 
     @categoria.setter
     def categoria(self, categoria):
-        #if not isinstance(categoria, Categoria):
-        #    raise TypeError("Categoria Inválida")
+        if not isinstance(categoria, Categoria):
+           raise TypeError("Categoria Inválida")
         self.__categoria = categoria
 
     @property
@@ -55,10 +69,10 @@ class Lancamento:
 
     @formas_pagamento.setter
     def formas_pagamento(self, formas_pagamento):
-        opcoes_validas = ["Dinheiro", "Débito", "Crédito", "PIX"]
+        opcoes_validas = ["DINHEIRO", "DEBITO", "CREDITO", "PIX"]
         if formas_pagamento not in opcoes_validas:
             raise ValueError("Forma de pagamento inválida!")
-        self.__formas_pagamento = formas_pagamento.lower()
+        self.__formas_pagamento = formas_pagamento.upper()
 
 # Métodos especiais
 
