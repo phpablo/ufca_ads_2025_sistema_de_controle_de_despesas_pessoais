@@ -37,7 +37,7 @@ class GerenciarCategorias():
         
     def excluirCategoria(self, nome, tipo):
         for i in self.categorias_criadas:
-            if i.nome == nome and i.tipo == tipo.lower:
+            if i.nome == nome and i.tipo == tipo.lower():
                 self.categorias_criadas.remove(i)
                 return            
         raise ValueError('Categoria não encontrada')
