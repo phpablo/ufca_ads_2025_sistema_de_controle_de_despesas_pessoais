@@ -1,0 +1,32 @@
+{
+    "categoria": {
+        "nome": "",
+        "tipo": "",
+        "limite_mensal": "",
+        "descricao": ""
+    },
+    "orcamento": {
+        "orcamento_total": ""
+    },
+    "lancamento": {
+        "valor": "",
+        "categoria": "",
+        "data": "",
+        "descricao": "",
+        "forma_pagamento": ""
+    },
+    "despesa": {
+        "valor": "",
+        "categoria": "",
+        "data": "",
+        "descricao": "",
+        "forma_pagamento": ""
+    },
+    "receita": {
+        "valor": "",
+        "categoria": "",
+        "data": "",
+        "descricao": "",
+        "forma_pagamento": ""
+    }
+}
