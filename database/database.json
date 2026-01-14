@@ -1,10 +1,4 @@
-{
-    "categoria": {
-        "nome": "",
-        "tipo": "",
-        "limite_mensal": "",
-        "descricao": ""
-    },
+{    
     "orcamento": {
         "orcamento_total": ""
     },
