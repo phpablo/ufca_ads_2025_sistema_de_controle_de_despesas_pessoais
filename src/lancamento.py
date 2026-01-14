@@ -1,17 +1,23 @@
 from datetime import date
 from src.categoria import Categoria
+from database.database import lerJsonCategorias
 
 class Lancamento:
-    def __init__(self, valor: float, categoria, data, descricao: str, formas_pagamento: str):
+    def __init__(self, valor: float, categoria:str, data, descricao: str, formas_pagamento: str, tipo:str):
+        categoriasCriadas = lerJsonCategorias('categoria')
         if not isinstance(valor, (int, float)) or valor <= 0:
             raise ValueError("Valor inválido.")
         else:
             self.__valor = valor
 
-        if not isinstance(categoria, Categoria):
-           raise TypeError("Categoria Inválida")
-        else:
-            self.__categoria = categoria
+        for i in categoriasCriadas:
+            if i['nome'] == categoria and i['tipo'] == tipo:
+                self.__categoria = i 
+                break                
+            else:
+                print('Categoria não encontrada!')
+                break
+                      
         self.__data = data if data else date.today()
         if not isinstance(descricao, str) or not descricao.strip():
             raise ValueError('Descrição inválida')

@@ -1,14 +1,19 @@
-from src.orcamento import Orcamento
+from ui.menus import MenuPrincipal
 from src.lancamento import Lancamento
-from src.categoria import Categoria, GerenciarCategorias
+from src.categoria import Categoria
 
-def  main():
-    orcamento = Orcamento(5000)
-    casa = Categoria('Casa', 'despesa', 1000, 'Despesas de casa')
-    categorias = GerenciarCategorias()
-    categorias.criarCategoria(casa)
-    categorias.excluirCategoria(casa.nome, casa.tipo)
-
+# if __name__ == '__main__':
+#     categoriaTeste = Categoria('Teste', 'Despesa', 1500, 'Despesas com coisas de casa')
+#     categoriaTeste.criarCategoria(categoriaTeste)
+    
+    
 
 if __name__ == '__main__':
-    main()
+    print('='*150)
+    print(' '* 55 + 'SISTEMA DE CONTROLE DE DESPESAS PESSOAIS')
+    print('='*150)
+    print(' '*11 + 'Instruções de uso: siga as instruções do terminal. Para a indicar a operação, seleciona o número associado e confirme o comando')
+    print(' '*57 + 'Escolha uma das opções a seguir:')
+    MenuPrincipal()
+
+

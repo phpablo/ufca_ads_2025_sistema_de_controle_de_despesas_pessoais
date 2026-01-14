@@ -1,3 +1,6 @@
+from database.database import lerJsonCategorias
+from database.database import salvarJsonCategorias
+
 # 1. Cria a classe categoria com os 4 atributos principais. Também faz a validação inicial do preenchimento dos atributos
 class Categoria: 
     def __init__(self, nome, tipo, limite_mensal, descricao):    
@@ -16,25 +19,37 @@ class Categoria:
             self.limite_mensal = limite_mensal
         self.descricao = descricao
 
-
+    @staticmethod
+    def verificar_nome(self):
+        categoriasCriadas = lerJsonCategorias()
+        for i in categoriasCriadas:
+            if i['nome'] == self.nome and i['tipo'] == self.tipo:
+                return True
+        return False
+    
+    @staticmethod    
+    def criarCategoria(self):  
+        categoriasCriadas = lerJsonCategorias()       
+        if self.verificar_nome(self) is False:  
+            dictCategoria = {
+            "nome": self.nome,
+            "tipo": self.tipo,
+            "limite_mensal": self.limite_mensal,
+            "descricao": self.descricao,
+        }   
+            categoriasCriadas.append(dictCategoria)
+            salvarJsonCategorias(categoriasCriadas)
+                  
+        else:
+            raise ValueError('Categoria duplicada') 
+        
+        
 # 2. Cria uma classe de gerenciamento que armazena todas as categorias criadas. Armazena também os métodos de manipulação das categorias
 
 class GerenciarCategorias():    
     def __init__(self):      
-        self.categorias_criadas = []  
+        self.categorias_criadas = []    
 
-    def verificar_nome(self, nome, tipo):
-        for i in self.categorias_criadas:
-            if i.nome == nome and i.tipo == tipo:
-                return True
-        return False
-    
-    def criarCategoria(self, Categoria):  
-        if self.verificar_nome(Categoria.nome, Categoria.tipo) is False: 
-            self.categorias_criadas.append(Categoria)   
-        else:
-            raise ValueError('Categoria duplicada') 
-        
     def excluirCategoria(self, nome, tipo):
         for i in self.categorias_criadas:
             if i.nome == nome and i.tipo == tipo.lower():
