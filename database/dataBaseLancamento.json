@@ -1,0 +1,12 @@
+{
+  "valor": 10000.0,
+  "categoria": {
+    "nome": "Bar",
+    "tipo": "receita",
+    "limite_mensal": 1003.2,
+    "descricao": "Despesa pra whisky"
+  },
+  "descricao": "Gastos com bar",
+  "forma_pagamento": "PIX",
+  "tipo": "receita"
+}
