@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "nome": "Bar",
+    "tipo": "receita",
+    "limite_mensal": 1003.2,
+    "descricao": "Despesa pra whisky"
+  },
+  {
+    "nome": "Bar",
+    "tipo": "despesa",
+    "limite_mensal": 100,
+    "descricao": "Despesa com cerveja"
+  },
+  {
+    "nome": "Salario",
+    "tipo": "receita",
+    "limite_mensal": 1500,
+    "descricao": "Despesas com coisas de casa"
+  },
+  {
+    "nome": "freelancer",
+    "tipo": "receita",
+    "limite_mensal": 1500,
+    "descricao": "Despesas com coisas de casa"
+  },
+  {
+    "nome": "Teste",
+    "tipo": "receita",
+    "limite_mensal": 1500,
+    "descricao": "Despesas com coisas de casa"
+  },
+  {
+    "nome": "Teste",
+    "tipo": "despesa",
+    "limite_mensal": 1500,
+    "descricao": "Despesas com coisas de casa"
+  },
+  {
+    "nome": "hotel",
+    "tipo": "despesa",
+    "limite_mensal": 1000,
+    "descricao": "asfasd"
+  },
+  {
+    "nome": "job",
+    "tipo": "receita",
+    "limite_mensal": 1000,
+    "descricao": "asfasd"
+  }
+]
