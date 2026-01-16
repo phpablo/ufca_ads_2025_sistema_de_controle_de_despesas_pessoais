@@ -1,16 +1,11 @@
 {
-    "alertas": {
-        "alto_valor_de_despesa": 500.0,
-        "ativar_alerta_limite_categoria": true,
-        "ativar_alerta_saldo_negativo": true
-    },
-    "relatorios": {
-        "meses_comparativos": 3
-    },
-    "orçamento": {
-        "percentual_meta_economia": 0.20
-    },
-    "validacoes": {
-        "valor_minimo_lancamento": 0.01
-    }
+
+    "alto_valor_de_despesa": 500.0,
+
+    "meses_comparativos": 3,
+    
+    "percentual_meta_economia": 0.20,
+   
+    "valor_minimo_lancamento": 0.01
+    
 }

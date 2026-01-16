@@ -16,7 +16,9 @@ def salvarJsonLancamentos(dictReceita):
     with open('./database/dataBaseLancamentos.json', 'w') as arquivo:
         json.dump(dictReceita, arquivo, ensure_ascii=False, indent=2)
         
-
+def lerJsonSettings():
+    with open('./database/settings.json', 'r') as arquivo:
+        return json.load(arquivo)
 
     
 
