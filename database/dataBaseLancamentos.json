@@ -26,5 +26,29 @@
     "descricao": "caiu o salario",
     "forma_pagamento": "PIX",
     "tipo": "receita"
+  },
+  {
+    "valor": 200.0,
+    "categoria": "Teste",
+    "descricao": "Despesas da casa",
+    "forma_pagamento": "CREDITO",
+    "data": [
+      15,
+      1,
+      2026
+    ],
+    "tipo": "despesa"
+  },
+  {
+    "valor": 350.0,
+    "categoria": "job",
+    "descricao": "dfasfasdf",
+    "forma_pagamento": "PIX",
+    "data": [
+      15,
+      1,
+      2026
+    ],
+    "tipo": "receita"
   }
 ]

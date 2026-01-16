@@ -17,6 +17,7 @@ class Receita(Lancamento):
             "categoria": self.categoria['nome'],
             "descricao": self.descricao,
             "forma_pagamento": self.formas_pagamento,
+            "data": self._data,
             "tipo": self.__tipo
         }
         receitasJson.append(receita)

@@ -5,6 +5,7 @@ class Despesa(Lancamento):
     def __init__(self, valor: float, categoria, descricao: str, formas_pagamento: str, tipo: str):
         super().__init__(valor, categoria, descricao, formas_pagamento, tipo)
         self.__tipo = tipo
+        
     def __str__(self):
         return f'Despesa | Data: {self.data} | Categoria: {self.categoria.nome} | Valor: {self.valor} | Forma de pagamento: {self.formas_pagamento}'
     
@@ -16,6 +17,7 @@ class Despesa(Lancamento):
             "categoria": self.categoria['nome'],
             "descricao": self.descricao,
             "forma_pagamento": self.formas_pagamento,
+            "data": self._data,
             "tipo": self.__tipo
         }
         receitasJson.append(receita)

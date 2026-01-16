@@ -22,7 +22,7 @@ class Lancamento:
         if not categoria_encontrada:
             print('Categoria não encontrada')
     
-        self.__data = (date.today().day, date.today().month, date.today().year)
+        self._data = (date.today().day, date.today().month, date.today().year)
 
         if not isinstance(descricao, str) or not descricao.strip():
             raise ValueError('Descrição inválida')
