@@ -1,16 +1,24 @@
 # from database.database import lerJsonLancamentos, salvarJsonLancamentos
 from src.receita import Receita
 from src.despesa import Despesa
+from database.database import lerJsonSettings
 
 def criarReceita():
   print('\nRegistrar receita no sistema')
 
+  settings = lerJsonSettings()
+  vml = float(settings["valor_minimo_lancamento"])
+
   valor = input('Valor da receita: ')
   while True:
-    if valor.isnumeric():
+    try:
       valor = float(valor)
+      if valor < vml:
+        print(f"Valor minimo para esse lançamento é R$ {vml:.2f}")
+        valor = input ('Valor de despesa: ')
+        continue
       break
-    else:
+    except ValueError:
       print('Digite um valor válido')
       valor = input('Valor da receita: ')
   
@@ -29,12 +37,18 @@ def criarReceita():
 def criarDespesa():
   print('\nRegistrar despesa no sistema')
 
+  settings = lerJsonSettings()
+  vml = float(settings["valor_minimo_lancamento"])
+
   valor = input('Valor da despesa: ')
   while True:
-    if valor.isnumeric():
+    try:
       valor = float(valor)
+      if valor < vml:
+        print(f"Valor minimo para esse lançamento é R$ {vml:.2f}")
+        valor = input ('Valor de receita: ')
       break
-    else:
+    except ValueError:
       print('Digite um valor válido')
       valor = input('Valor da despesa: ')
 
