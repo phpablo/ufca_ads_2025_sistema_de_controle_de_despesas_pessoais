@@ -14,7 +14,7 @@ def criarReceita():
     try:
       valor = float(valor)
       if valor < vml:
-        print(f"Valor minimo para esse lançamento é R$ {vml:.2f}")
+        print(f"Valor minimo para esse lançamento é R$ {vml:.2f}.")
         valor = input ('Valor de despesa: ')
         continue
       break
