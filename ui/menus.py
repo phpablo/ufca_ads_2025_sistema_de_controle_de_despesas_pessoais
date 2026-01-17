@@ -1,6 +1,31 @@
+from src.relatorio import total_despesas_por_categoria,despesas_por_forma_pagamento,percentual_despesas_por_categoria,mes_mais_economico,comparativo_receitas_despesas
 from ui.leitura import ler_opcao
 from src.registroLancamentos import criarDespesa, criarReceita
 from database.database import lerJsonSettings
+
+def menuRelatorio():
+    print(' '*65 + 'R E L Á T Ó R I O')
+    while True:
+        print('- 1. Total de despesas por Categoria')
+        print('- 2. Total de despesas por Forma de Pagamento')
+        print('- 3. Percentual de Despesas por Categoria')
+        print('- 4. Mês mais econômico')
+        print('- 5. Receitas X Despesas nos ultimos 3 meses')
+        print('- 0. Voltar')
+        opcao = ler_opcao()
+
+        if opcao == 0:
+            return
+        elif opcao == 1:
+            total_despesas_por_categoria()
+        elif opcao == 2:
+            despesas_por_forma_pagamento()
+        elif opcao == 3:
+            percentual_despesas_por_categoria()
+        elif opcao == 4:
+            mes_mais_economico()
+        elif opcao == 5:
+            comparativo_receitas_despesas()
 
 def MenuCategorias():
     print(' '*65 + 'C A T E G O R I A S')
@@ -79,6 +104,8 @@ def MenuPrincipal():
             menuLancamentos()
         elif opcao == 3:
             menuConfiguracoes()
+        elif opcao == 4:
+            menuRelatorio()
         # else:
         #     print('Opção inválida')
 

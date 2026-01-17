@@ -19,7 +19,7 @@ def salvarJsonLancamentos(dictReceita):
 def lerJsonSettings():
     with open('./database/settings.json', 'r') as arquivo:
         return json.load(arquivo)
-
+print("database.py carregado com sucesso")
     
 
 

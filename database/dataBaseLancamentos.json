@@ -12,11 +12,23 @@
     "descricao": "dsfasdfasdfsd",
     "forma_pagamento": "PIX",
     "tipo": "receita"
+  },{
+    "valor": 30.0,
+    "categoria": "Moradia",
+    "descricao": "Cinema",
+    "forma_pagamento": "PIX",
+    "tipo": "despesa"
   },
   {
     "valor": 10.0,
     "categoria": "Bar",
     "descricao": "Despesa pra whisky",
+    "forma_pagamento": "DINHEIRO",
+    "tipo": "despesa"
+  },{
+    "valor": 10.0,
+    "categoria": "Bar",
+    "descricao": "Gin",
     "forma_pagamento": "DINHEIRO",
     "tipo": "despesa"
   },
@@ -36,6 +48,50 @@
       15,
       1,
       2026
+    ],
+    "tipo": "despesa"
+  },{
+    "valor": 600.0,
+    "categoria": "Moradia",
+    "descricao": "Aluguel",
+    "forma_pagamento": "CREDITO",
+    "data": [
+      15,
+      1,
+      2026
+    ],
+    "tipo": "despesa"
+  },{
+    "valor": 800.0,
+    "categoria": "Moradia",
+    "descricao": "Compras do mês",
+    "forma_pagamento": "CREDITO",
+    "data": [
+      15,
+      1,
+      2026
+    ],
+    "tipo": "despesa"
+  },{
+    "valor": 200.0,
+    "categoria": "Moradia",
+    "descricao": "streaming",
+    "forma_pagamento": "CREDITO",
+    "data": [
+      10,
+      12,
+      2025
+    ],
+    "tipo": "despesa"
+  },{
+    "valor": 5.0,
+    "categoria": "Lazer",
+    "descricao": "casquinha",
+    "forma_pagamento": "PIX",
+    "data": [
+      10,
+      11,
+      2025
     ],
     "tipo": "despesa"
   },
