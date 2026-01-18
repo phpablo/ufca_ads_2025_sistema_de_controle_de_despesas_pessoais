@@ -165,7 +165,7 @@ A execução do projeto foi dividida entre os membros da equipe para garantir a 
 
 * Execução
 1. Abra o terminal na pasta raiz do projeto.
-2. Execute o sistema através do menu principal: python -m src.main
+2. Execute o sistema através do menu principal: python -m main.py
 
 <div align="center">
   <sub>UFCA - Campus Itapipoca | 2025</sub>
