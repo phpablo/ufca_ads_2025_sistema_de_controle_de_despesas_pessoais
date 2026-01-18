@@ -56,7 +56,7 @@ def criarDespesa():
   descricao = input('Descrição: ')
   forma_pagamento = input('Forma de pagamento (DINHEIRO, PIX, DEBITO, CREDITO): ')
   while True:
-    if forma_pagamento.isalpha() and forma_pagamento in ['DINHEIRO', 'PIX', 'DEBITO', 'CREDITO']:
+    if forma_pagamento.isalpha() and forma_pagamento.upper() in ['DINHEIRO', 'PIX', 'DEBITO', 'CREDITO']:
       break
     else:
       forma_pagamento = input('Forma de pagamento (DINHEIRO, PIX, DEBITO, CREDITO): ').upper()

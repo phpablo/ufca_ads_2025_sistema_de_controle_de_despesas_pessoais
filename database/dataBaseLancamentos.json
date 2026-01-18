@@ -1,7 +1,7 @@
 [
   {
     "valor": 2500.0,
-    "categoria": "Salário",
+    "categoria": "Salï¿½rio",
     "descricao": "Ganhei no uber",
     "forma_pagamento": "DEBITO",
     "data": [
@@ -15,6 +15,30 @@
     "valor": 150.0,
     "categoria": "bar",
     "descricao": "Cerveja skol",
+    "forma_pagamento": "PIX",
+    "data": [
+      18,
+      1,
+      2026
+    ],
+    "tipo": "despesa"
+  },
+  {
+    "valor": 200.0,
+    "categoria": "bar",
+    "descricao": "muita cerveja",
+    "forma_pagamento": "CREDITO",
+    "data": [
+      18,
+      1,
+      2026
+    ],
+    "tipo": "despesa"
+  },
+  {
+    "valor": 10.0,
+    "categoria": "bar",
+    "descricao": "agua",
     "forma_pagamento": "PIX",
     "data": [
       18,
