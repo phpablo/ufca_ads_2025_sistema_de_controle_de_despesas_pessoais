@@ -1,14 +1,22 @@
 from src.alerta import Alerta
+from database.database import lerJsonSettings, lerJsonLancamentos
 
 class Orcamento:
-    def __init__(self, orcamento_total: float):
-        self.orcamento_total = orcamento_total
-        self.lista_lancamentos = []
+    def __init__(self):                
         self.alerta_sistema = Alerta()
 
-    def adicionar_lancamento(self, lancamento):
-        self.lista_lancamentos.append(lancamento)
-        self.verificar_alertas(lancamento)
+    def saldoGlobal(self):
+        lancamentosCriados = lerJsonLancamentos()
+        receita = 0
+        despesa = 0
+        for i in lancamentosCriados:
+            if i['tipo'] == 'receita':
+                receita += i['valor']
+            elif i['tipo'] == 'despesa':
+                despesa += i['valor']
+        saldo = receita - despesa
+        return saldo
+
 
     def calcular_saldo_mensal(self, mes, ano):
         total_receitas = 0.0
@@ -36,10 +44,11 @@ class Orcamento:
 
     def verificar_alertas(self, item_recente):
         # Regra 1: Déficit
+        config_alto_valor = lerJsonSettings()
         saldo_mes = self.calcular_saldo_mensal(item_recente.data.month, item_recente.data.year)
         if saldo_mes < 0:
             self.alerta_sistema.emitir_alerta_deficit(saldo_mes)
 
         # Regra 2: Alto Valor (Despesa > 500)
-        if item_recente.categoria == "DESPESA" and item_recente.valor > 500:
+        if item_recente.categoria == "DESPESA" and item_recente.valor > config_alto_valor["alto_valor_de_despesa"]:
             self.alerta_sistema.emitir_alerta_alto_valor(item_recente.valor, item_recente.descricao)

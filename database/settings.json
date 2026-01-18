@@ -1,0 +1,11 @@
+{
+
+    "alto_valor_de_despesa": 500.0,
+
+    "meses_comparativos": 3,
+    
+    "percentual_meta_economia": 0.20,
+   
+    "valor_minimo_lancamento": 0.01
+    
+}

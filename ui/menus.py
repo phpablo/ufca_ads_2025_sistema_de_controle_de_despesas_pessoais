@@ -1,52 +1,127 @@
-from ui.leitura import ler_opcao
+import os
+from src.categoria import Categoria
 from src.registroLancamentos import criarDespesa, criarReceita
-
-def MenuCategorias():
-    print(' '*65 + 'C A T E G O R I A S')
-    while True:
-        print('- 1. Cadastrar Categorias')
-        print('- 2. Listar Categorias')
-        print('- 3. Editar Categoria')
-        print('- 4. Remover Categoria')
-        print('- 0. Voltar')
-        opcao = ler_opcao()
-
-        if opcao == 0:
-            return
-
-def menuLancamentos():
-    print(' '*65 + 'L A N Ç A M E N T O S')
-    while True:
-        print('\n- 1. Registrar receita')
-        print('- 2. Registrar despesa')
-        print('- 0. Sair')
-        opcao = ler_opcao()
-        if opcao == 0:
-            break
-        elif opcao == 1:
-            criarReceita()
-        elif opcao == 2:
-            criarDespesa()
+from src.orcamento import Orcamento
 
 
-def MenuPrincipal(): 
-    while True:
-        print(' '*65 + 'M E N U')
-        print('- 1. Gerenciar Categorias')
-        print('- 2. Gerenciar Lançamentos')
-        print('- 3. Relatórios')
-        print('- 0. Sair')
-        opcao = ler_opcao()
-        if opcao == 0:
-            break
-        elif opcao == 1:
-            MenuCategorias()
-        elif opcao == 2:
-            menuLancamentos()
-        # else:
-        #     print('Opção inválida')
+class MenuPrincipal:
+    def __init__(self):
+        pass
+
+    def limpar_tela(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+    def iniciar(self):
+        self.limpar_tela()
+        print("=" * 40)
+        print("SISTEMA DE CONTROLE FINANCEIRO")
+        print("=" * 40)
+        while True:
+            print('1 - Gerenciar Categorias')
+            print('2 - Lançar Receita')
+            print('3 - Lançar Despesa')
+            print('4 - Ver Saldo')
+            print('5 - Ver Relatórios')
+            print('0 - Sair')
+            opcao = input('Escolha uma opção: ')
+
+            if opcao == '1':
+                opCategoria = self.menuCategoria()
+
+            elif opcao == '2':
+                try:
+                    self.limpar_tela()
+                    print('--- Criar Receita ---') 
+                    opReceita = criarReceita()
+                except ValueError as e:
+                    print(f'Erro: {e}')
+
+            elif opcao == '3':
+                try:
+                    self.limpar_tela()
+                    print('--- Criar Despesa ---') 
+                    opDespesa = criarDespesa()
+                except ValueError as e:
+                    print(f'Erro: {e}')
+
+            elif opcao == '4':
+                opSaldo = self.menuOrcamento()
+                
+            elif opcao == '0':
+                self.limpar_tela()
+                print('Saindo do sistema...')
+                break
+            
+    def menuCategoria(self):
+        self.limpar_tela()
+        print('--- Gerencia de Categorias ---')        
+        while True:
+            print('1 - Listar Categorias')
+            print('2 - Criar Categoria')
+            print('3 - Remover Categoria')
+            print('4 - Editar Categoria')
+            print('0 - Retornar para o menu principal')
+            opcao = input('Escolha uma opção: ')
+            self.limpar_tela()
+
+            if opcao == '1':
+                self.limpar_tela()
+                print(' -- Lista de Categorias Criadas -- ')
+                print('Nome || Tipo || Limite Mensal || Descrição')
+                print(len('Nome || Tipo || Limite Mensal || Descrição')*'-')
+                try:
+                    Categoria.listarCategorias()
+                except ValueError as e:
+                    print(f'Erro: {e}')
+
+            elif opcao == '2':    
+                try:            
+                    nome = input('Digite o nome da categoria: ')
+                    tipo = input('Digite o tipo da categoria (RECEITA OU DESPESA): ')                
+                    limiteMensal = input('Digite o limite de gastos para essa categoria: ')
+                    descricao = input('Faça uma descrição da categoria: ')                    
+                    objCategoria = Categoria(nome, tipo, limiteMensal, descricao)
+                    objCategoria.criarCategoria(objCategoria)
+                    print('Categoria criada com sucesso')
+                    self.limpar_tela()
+
+                except ValueError as e:
+                    print(f'Erro: {e}')  
+                
+            elif opcao == '3':
+                nome = input('Digite o nome da categoria que deseja excluir (lembre de escrever conforme foi cadastrada): ')
+                tipo = input('Digite o tipo da categoria que deseja excluir (RECEITA OU DESPESA): ')
+                try:
+                    Categoria.excluirCategoria(nome, tipo)
+                except ValueError as e:
+                    print(f'Erro: {e}')
+                    
+            elif opcao == '4':
+                nome = input('Digite o nome da categoria que deseja editar (lembre de escrever conforme foi cadastrada): ')
+                campo = input('Digite o campo que deseja editar (OPÇÔES: nome, tipo, limite mensal, descrição): ')
+                novoValor = input('Digite o novo valor do campo: ')
+                try:
+                    Categoria.editarCategoria(nome, campo, novoValor)
+                except ValueError as e:
+                    print(f'Erro: {e}')
+                
+            elif opcao == '0':
+                break
+        
+    def menuOrcamento(self):
+        self.limpar_tela()
+        print('--- Calcular Saldo ---') 
+        objOrcamento = Orcamento()
+        saldo = objOrcamento.saldoGlobal()
+        print(f'Saldo Atual: {saldo} R$')
+        
 
 
 
 
+
+
+
+        
+        
 

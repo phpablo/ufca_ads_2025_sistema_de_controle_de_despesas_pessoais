@@ -1,54 +1,26 @@
 [
   {
-    "valor": 1000.0,
-    "categoria": "Bar",
-    "descricao": "Reembolso do bar",
-    "forma_pagamento": "DINHEIRO",
-    "tipo": "receita"
-  },
-  {
-    "valor": 10000.0,
-    "categoria": "freelancer",
-    "descricao": "dsfasdfasdfsd",
-    "forma_pagamento": "PIX",
-    "tipo": "receita"
-  },
-  {
-    "valor": 10.0,
-    "categoria": "Bar",
-    "descricao": "Despesa pra whisky",
-    "forma_pagamento": "DINHEIRO",
-    "tipo": "despesa"
-  },
-  {
-    "valor": 2000.0,
-    "categoria": "Salario",
-    "descricao": "caiu o salario",
-    "forma_pagamento": "PIX",
-    "tipo": "receita"
-  },
-  {
-    "valor": 200.0,
-    "categoria": "Teste",
-    "descricao": "Despesas da casa",
-    "forma_pagamento": "CREDITO",
+    "valor": 2500.0,
+    "categoria": "Salário",
+    "descricao": "Ganhei no uber",
+    "forma_pagamento": "DEBITO",
     "data": [
-      15,
-      1,
-      2026
-    ],
-    "tipo": "despesa"
-  },
-  {
-    "valor": 350.0,
-    "categoria": "job",
-    "descricao": "dfasfasdf",
-    "forma_pagamento": "PIX",
-    "data": [
-      15,
+      18,
       1,
       2026
     ],
     "tipo": "receita"
+  },
+  {
+    "valor": 150.0,
+    "categoria": "bar",
+    "descricao": "Cerveja skol",
+    "forma_pagamento": "PIX",
+    "data": [
+      18,
+      1,
+      2026
+    ],
+    "tipo": "despesa"
   }
 ]
