@@ -15,40 +15,28 @@ class Orcamento:
             elif i['tipo'] == 'despesa':
                 despesa += i['valor']
         saldo = receita - despesa
-        return saldo
-
+        return saldo, receita, despesa
 
     def calcular_saldo_mensal(self, mes, ano):
+        lancamentosCriados = lerJsonLancamentos()  
         total_receitas = 0.0
         total_despesas = 0.0
-
-        for item in self.lista_lancamentos:
+        for i in lancamentosCriados:                    
             # Filtra pelo mês e ano
-            if item.data.month == mes and item.data.year == ano:
-                if item.categoria == "RECEITA":
-                    total_receitas += item.valor
-                elif item.categoria == "DESPESA":
-                    total_despesas += item.valor
-
+            if i['data'][1] == int(mes) and i['data'][2] == int(ano):                
+                if i['tipo'] == "receita":                    
+                    total_receitas += i['valor']
+                elif i['tipo'] == "despesa":                    
+                    total_despesas += i['valor']
         return total_receitas - total_despesas
 
     def calcular_saldo_diario(self, dia, mes, ano):
+        lancamentosCriados = lerJsonLancamentos()  
         saldo_dia = 0.0
-        for item in self.lista_lancamentos:
-            if item.data.day == dia and item.data.month == mes and item.data.year == ano:
-                if item.categoria == "RECEITA":
-                    saldo_dia += item.valor
-                elif item.categoria == "DESPESA":
-                    saldo_dia -= item.valor
+        for i in lancamentosCriados:
+            if i['data'][0] == int(dia) and i['data'][1] == int(mes) and i['data'][2] == int(ano):
+                if i['tipo'] == "receita":
+                    saldo_dia += i['valor']
+                elif i['tipo'] == "despesa":
+                    saldo_dia -= i['valor']            
         return saldo_dia
-
-    def verificar_alertas(self, item_recente):
-        # Regra 1: Déficit
-        config_alto_valor = lerJsonSettings()
-        saldo_mes = self.calcular_saldo_mensal(item_recente.data.month, item_recente.data.year)
-        if saldo_mes < 0:
-            self.alerta_sistema.emitir_alerta_deficit(saldo_mes)
-
-        # Regra 2: Alto Valor (Despesa > 500)
-        if item_recente.categoria == "DESPESA" and item_recente.valor > config_alto_valor["alto_valor_de_despesa"]:
-            self.alerta_sistema.emitir_alerta_alto_valor(item_recente.valor, item_recente.descricao)

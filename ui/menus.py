@@ -112,9 +112,32 @@ class MenuPrincipal:
         self.limpar_tela()
         print('--- Calcular Saldo ---') 
         objOrcamento = Orcamento()
-        saldo = objOrcamento.saldoGlobal()
-        print(f'Saldo Atual: {saldo} R$')
-        
+        saldo, receita, despesa = objOrcamento.saldoGlobal()
+        print(f'Saldo Atual: R$ {saldo}')
+        print(f'Total de despesas: R$ {despesa}')
+        print(f'Total de receitas: R$ {receita}')        
+        print('1 - Calcular Saldo Mensal')
+        print('2 - Calcular Saldo Diário')
+        print('0 - Voltar para o menu principal')
+        opcao = input('Escolha uma opção: ')
+        while True:            
+            if opcao == '1':
+                mes = input('Digite o número relativo ao mês (ex: 1 - janeiro): ')
+                ano = input('ano de referência: ')
+                saldoMensal = Orcamento()
+                print(f'O saldo mensal para o mês é: {saldoMensal.calcular_saldo_mensal(mes, ano)}')                             
+                break
+            elif opcao == '2':
+                dia = input('Digite o número relativo ao dia: ')
+                mes = input('Digite o número relativo ao mês (ex: 1 - janeiro): ')
+                ano = input('ano de referência: ')
+                saldoMensal = Orcamento()
+                print(f'O saldo mensal para o dia escolhido é: {saldoMensal.calcular_saldo_diario(dia, mes, ano)}')                             
+                break
+            elif opcao == '3':
+                break
+
+
 
 
 
