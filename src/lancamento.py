@@ -3,25 +3,24 @@ from src.categoria import Categoria
 from database.database import lerJsonCategorias
 
 class Lancamento:   
-    def __init__(self, valor: float, categoria:str, descricao: str, formas_pagamento: str, tipo:str):
-        categoriasCriadas = lerJsonCategorias()
-        if not isinstance(valor, (int, float)) or valor <= 0:
-            raise ValueError("Valor inválido.")
+    def __init__(self, valor: float, categoria:str, descricao: str, formas_pagamento: str, tipo:str):       
+        categoriasCriadas = lerJsonCategorias()           
+        try:
+            valor = float(valor)
+        except:
+            raise ValueError('O valor deve ser um número')
+        if valor <= 0:
+            raise ValueError("O valor deve ser maior do que zero.")
         else:
             self.__valor = valor
         
-        categoria_encontrada = True
         for i in categoriasCriadas:
             if i['nome'] == categoria and i['tipo'] == tipo:
-                self.__categoria = i
-                categoria_encontrada = True
-                break                
-            else:
-                categoria_encontrada = False
+                self.categoria = i['nome'] 
+                break                         
+        else:
+            raise ValueError ('Categoria não encontrada')
         
-        if not categoria_encontrada:
-            print('Categoria não encontrada')
-    
         self._data = (date.today().day, date.today().month, date.today().year)
 
         if not isinstance(descricao, str) or not descricao.strip():
@@ -43,16 +42,6 @@ class Lancamento:
         if not isinstance(valor, (int, float)) or valor <= 0:
             raise ValueError("Valor inválido.")
         self.__valor = float(valor)
-
-    @property
-    def categoria(self):
-        return self.__categoria
-
-    @categoria.setter
-    def categoria(self, categoria):
-        if not isinstance(categoria, Categoria):
-           raise TypeError("Categoria Inválida")
-        self.__categoria = categoria
 
     @property
     def data(self):

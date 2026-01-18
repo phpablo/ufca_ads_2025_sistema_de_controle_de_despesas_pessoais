@@ -1,15 +1,22 @@
 from src.alerta import Alerta
-from database.database import lerJsonSettings
+from database.database import lerJsonSettings, lerJsonLancamentos
 
 class Orcamento:
-    def __init__(self, orcamento_total: float):
-        self.orcamento_total = orcamento_total
-        self.lista_lancamentos = []
+    def __init__(self):                
         self.alerta_sistema = Alerta()
 
-    # def adicionar_lancamento(self, lancamento):
-    #     self.lista_lancamentos.append(lancamento)
-    #     self.verificar_alertas(lancamento)
+    def saldoGlobal(self):
+        lancamentosCriados = lerJsonLancamentos()
+        receita = 0
+        despesa = 0
+        for i in lancamentosCriados:
+            if i['tipo'] == 'receita':
+                receita += i['valor']
+            elif i['tipo'] == 'despesa':
+                despesa += i['valor']
+        saldo = receita - despesa
+        return saldo
+
 
     def calcular_saldo_mensal(self, mes, ano):
         total_receitas = 0.0

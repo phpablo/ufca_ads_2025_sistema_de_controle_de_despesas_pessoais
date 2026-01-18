@@ -13,10 +13,18 @@ class Categoria:
             raise ValueError('Valor inválido, o tipo deve ser "receita" ou "despesa"')
         else:
             self.tipo = tipo.lower()
-        if not isinstance(limite_mensal, (int, float)) or limite_mensal < 0:
-            raise ValueError('O limite mensal deve ser um número e positivo')
-        else:
-            self.limite_mensal = limite_mensal
+        
+        try:
+            limite_mensal = float(limite_mensal)
+        except:
+            raise ValueError('O limite mensal deve ser um número')
+    
+        if limite_mensal < 0:
+            raise ValueError('O limite mensal deve ser positivo')
+        
+        self.limite_mensal = limite_mensal
+
+
         self.descricao = descricao
 
     @staticmethod
@@ -84,8 +92,12 @@ class Categoria:
             salvarJsonCategorias(categoriasCriadas)
 
         if campo.lower() == 'limite mensal':
-            if not isinstance(novo_valor, (int, float)) or novo_valor < 0:
-                raise ValueError('O limite mensal deve ser um número e positivo')
+            try:
+                novo_valor = float(novo_valor)
+            except:
+                raise ValueError('O novo campo de limite mensal deve ser um número')
+            if novo_valor < 0:
+                raise ValueError('O valor de limite mensal deve ser positivo')
             categoria_editada['limite_mensal'] = novo_valor
             categoriasCriadas.append(categoria_editada)
             salvarJsonCategorias(categoriasCriadas)
@@ -94,6 +106,22 @@ class Categoria:
             categoria_editada['descricao'] = novo_valor
             categoriasCriadas.append(categoria_editada)  
             salvarJsonCategorias(categoriasCriadas)  
+
+    @staticmethod
+    def listarCategorias():
+        categoriasCriadas = lerJsonCategorias()
+        if len(categoriasCriadas) == 0:
+            raise ValueError('Nenhuma categoria cadastrada')
+        else:
+            for i in categoriasCriadas:
+                nome = i['nome']
+                tipo = i['tipo']
+                limiteMensal = i['limite_mensal']
+                descricao = i['descricao']
+                print(f'{nome} || {tipo} || {limiteMensal} || {descricao}')
+                print(len(f'{nome} || {tipo} || {limiteMensal} || {descricao}')*'-')
+  
+    
         
         
 
