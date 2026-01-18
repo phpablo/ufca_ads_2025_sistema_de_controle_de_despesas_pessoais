@@ -107,22 +107,43 @@ A execução do projeto foi dividida entre os membros da equipe para garantir a 
 
 ## 🗂️ Estrutura do projeto
 📁 Sistema de controle financeiro
+
 |
+
 |-- 📁 src
+
 |   |-- alerta.py
+
 |   |-- categoria.py
+
 |   |-- lancamento.py
+
 |   |-- receita.py
+
 |   |-- despesa.py
+
 |   |-- orcamento.py
+
 |   |-- registroLancamento.py
-|   |-- menus.py
-|   |-- leitura.py
+
 |
+
 |-- 📁 database
-|   |-- categorias.json
-|   |-- lancamentos.json
+
+|   |-- database.py
+
+|   |-- dataBaseLancamentos.json
+
+|   |-- dataBaseCategorias.json
+
 |   |-- settings.json
+
+|
+
+|-- 📁 ui
+
+|   |-- menus.py
+
 |
 
 ---
