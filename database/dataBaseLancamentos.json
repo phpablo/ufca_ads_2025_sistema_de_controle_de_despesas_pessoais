@@ -24,22 +24,10 @@
     "tipo": "despesa"
   },
   {
-    "valor": 200.0,
+    "valor": 4500.0,
     "categoria": "bar",
-    "descricao": "muita cerveja",
+    "descricao": "Computador gamer",
     "forma_pagamento": "CREDITO",
-    "data": [
-      18,
-      1,
-      2026
-    ],
-    "tipo": "despesa"
-  },
-  {
-    "valor": 10.0,
-    "categoria": "bar",
-    "descricao": "agua",
-    "forma_pagamento": "PIX",
     "data": [
       18,
       1,
