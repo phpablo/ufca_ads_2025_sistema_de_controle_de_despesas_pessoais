@@ -1,6 +1,6 @@
 # 💰 Sistema de Controle Financeiro Pessoal
 
-> **Entregável 1** - Disciplina de Programação Orientada a Objetos (POO)
+> **Entregável Final** - Disciplina de Programação Orientada a Objetos (POO)
 
 Este projeto consiste no desenvolvimento de um sistema para gestão de finanças pessoais. O objetivo é aplicar conceitos fundamentais de Orientação a Objetos, como herança, encapsulamento e divisão de responsabilidades, para criar uma ferramenta capaz de gerenciar receitas, despesas, orçamentos e emitir alertas financeiros.
 
@@ -23,6 +23,15 @@ Este projeto consiste no desenvolvimento de um sistema para gestão de finanças
 | **Saulo Victo Soares** | 2025013853 | Implementação (Categorias/Interface) |
 | **Pablo Henrique Lima de Araujo** | 2025013700 | Implementação (Orçamento/Alertas/Dados) |
 | **Vinicius Tabosa dos Santos** | 2025013890 | Implementação (Lançamentos/Subclasses) |
+
+---
+
+## Funcionalidades
+- Cadastro, edição e exclusão de categorias
+- Registro de receitas e despesas
+- Cálculo automático de saldo global
+- Alertas automáticos
+- Persistência de dados em arquivos JSON
 
 ---
 
@@ -96,6 +105,71 @@ A execução do projeto foi dividida entre os membros da equipe para garantir a 
     * Responsável pelo sistema de **Armazenamento de Dados**.
 
 ---
+
+## 🗂️ Estrutura do projeto
+📁 Sistema de controle financeiro
+|
+|-- 📁 src
+|   |-- alerta.py
+|   |-- categoria.py
+|   |-- lancamento.py
+|   |-- receita.py
+|   |-- despesa.py
+|   |-- orcamento.py
+|   |-- registroLancamento.py
+|   |-- relatorio.py
+|   |-- menus.py
+|   |-- leitura.py
+|
+|-- 📁 database
+|   |-- categorias.json
+|   |-- lancamentos.json
+|   |-- settings.json
+|
+
+---
+
+##  Diagrama do Sistema
+ 
+                        +-----------------------+
+                        |       Lancamento      |
+                        +-----------------------+
+                        | valor                 |
+                        | categoria             |
+                        | data                  |
+                        | descricao             |
+                        | forma_pagamento       |
+                        +-----------------------+
+                        ____________|____________
+                        |                       |
+             +----------------+         +----------------+
+             |     Receita    |         |     Despesa    |
+             +----------------+         +----------------+
+
+             +----------------+         +----------------+
+             |   Categoria    |         |    Orcamento   |
+             +----------------+         +----------------+
+
+                           +----------------+
+                           |     Alerta     |
+                           +----------------+
+
+---
+
+## Guia de execução
+* Pré-requisitos
+- Python 3.10 ou superior
+- Sistema operacional Windows, Linux ou macOS
+
+* Instalação
+1. Clone o repositório ou extraia os arquivos do projeto.
+2. Certifique-se de que a estrutura de pastas foi mantida conforme o repositório original.
+
+* Execução
+1. Abra o terminal na pasta raiz do projeto.
+2. Execute o sistema através do menu principal:
+```bash
+python -m src.menus
 
 <div align="center">
   <sub>UFCA - Campus Itapipoca | 2025</sub>
