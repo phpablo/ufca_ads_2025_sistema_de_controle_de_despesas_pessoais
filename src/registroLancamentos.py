@@ -22,7 +22,7 @@ def criarReceita():
       print('Digite um valor válido')
       valor = input('Valor da receita: ')
   
-  categoria = input('Nome da receita: ')
+  categoria = input('Nome da categoria: ')
   descricao = input('Descrição: ')
   forma_pagamento = input('Forma de pagamento (DINHEIRO, PIX, DEBITO, CREDITO): ').upper()
   while True:
@@ -52,7 +52,7 @@ def criarDespesa():
       print('Digite um valor válido')
       valor = input('Valor da despesa: ')
 
-  categoria = input('Nome da despesa: ')
+  categoria = input('Nome da categoria: ')
   descricao = input('Descrição: ')
   forma_pagamento = input('Forma de pagamento (DINHEIRO, PIX, DEBITO, CREDITO): ')
   while True:
