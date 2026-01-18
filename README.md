@@ -55,9 +55,9 @@ Classe "mãe" que define a estrutura básica de qualquer movimentação financei
 Especializações da classe Lançamento.
 
 * **📈 Receita:**
-    * *Métodos Específicos:* `Relatório()`
+    * *Métodos Específicos:* `criarReceita()`
 * **📉 Despesa:**
-    * *Métodos Específicos:* `Relatório()`
+    * *Métodos Específicos:* `criarDespesa()`
 
 
 ### 3. Classe: Categoria
@@ -65,7 +65,6 @@ Responsável por tipificar os lançamentos e definir tetos de gastos.
 * **Atributos:**
     * `Nome`, `Tipo`, `Limite mensal`, `Descrição (opcional)`
 * **Métodos:**
-    * `Relatório()`
     * `Emitir alerta()`
 
 ### 4. Classe: Orçamento
@@ -117,7 +116,6 @@ A execução do projeto foi dividida entre os membros da equipe para garantir a 
 |   |-- despesa.py
 |   |-- orcamento.py
 |   |-- registroLancamento.py
-|   |-- relatorio.py
 |   |-- menus.py
 |   |-- leitura.py
 |
@@ -167,9 +165,7 @@ A execução do projeto foi dividida entre os membros da equipe para garantir a 
 
 * Execução
 1. Abra o terminal na pasta raiz do projeto.
-2. Execute o sistema através do menu principal:
-```bash
-python -m src.menus
+2. Execute o sistema através do menu principal: python -m src.main
 
 <div align="center">
   <sub>UFCA - Campus Itapipoca | 2025</sub>
