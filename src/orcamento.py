@@ -15,6 +15,8 @@ class Orcamento:
             elif i['tipo'] == 'despesa':
                 despesa += i['valor']
         saldo = receita - despesa
+        if saldo < 0:
+            self.alerta_sistema.emitir_alerta_deficit(saldo)
         return saldo, receita, despesa
 
     def calcular_saldo_mensal(self, mes, ano):

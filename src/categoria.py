@@ -87,7 +87,7 @@ class Categoria:
         if campo.lower() == 'tipo':
             if novo_valor.lower() not in tipo_aceito:
                 raise ValueError('Valor inválido, o tipo deve ser "receita" ou "despesa"')
-            categoria_editada['tipo'] = novo_valor
+            categoria_editada['tipo'] = novo_valor.lower()
             categoriasCriadas.append(categoria_editada)
             salvarJsonCategorias(categoriasCriadas)
 

@@ -1,14 +1,1 @@
-[
-  {
-    "nome": "bar",
-    "tipo": "despesa",
-    "limite_mensal": 150.0,
-    "descricao": "Cerveja no bar do João"
-  },
-  {
-    "nome": "Salário",
-    "tipo": "receita",
-    "limite_mensal": 4500.0,
-    "descricao": "Salário da empresa"
-  }
-]
+[]

@@ -21,7 +21,6 @@ class MenuPrincipal:
             print('2 - Lançar Receita')
             print('3 - Lançar Despesa')
             print('4 - Ver Saldo')
-            print('5 - Ver Relatórios')
             print('0 - Sair')
             opcao = input('Escolha uma opção: ')
 
@@ -134,17 +133,7 @@ class MenuPrincipal:
                 saldoMensal = Orcamento()
                 print(f'O saldo mensal para o dia escolhido é: {saldoMensal.calcular_saldo_diario(dia, mes, ano)}')                             
                 break
-            elif opcao == '3':
+            elif opcao == '0':
+                self.limpar_tela()
                 break
-
-
-
-
-
-
-
-
-
-        
-        
-
+            
